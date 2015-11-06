@@ -1,0 +1,1431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="allisonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="auxiliar_idioma">
+          <Key>
+            <PropertyRef Name="id_auxiliar_idioma" />
+          </Key>
+          <Property Name="id_auxiliar_idioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_idioma" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clasificacion">
+          <Key>
+            <PropertyRef Name="id_clasificacion" />
+          </Key>
+          <Property Name="id_clasificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clasificacion_nombre" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contacto">
+          <Key>
+            <PropertyRef Name="id_contacto" />
+          </Key>
+          <Property Name="id_contacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contacto_nombre" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="contacto_correo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="contacto_mensaje" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="contacto_fecha" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="credito">
+          <Key>
+            <PropertyRef Name="id_credito" />
+          </Key>
+          <Property Name="id_credito" Type="int" Nullable="false" />
+          <Property Name="id_inmueble" Type="int" Nullable="false" />
+          <Property Name="credito_nombre" Type="nvarchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="detalle_usuario">
+          <Key>
+            <PropertyRef Name="id_detalle_usuario" />
+          </Key>
+          <Property Name="id_detalle_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_servicio" Type="int" />
+          <Property Name="detalle_usuario_biografia" Type="nvarchar" MaxLength="1000" />
+          <Property Name="detalle_usuario_tipo_cliente" Type="nvarchar" MaxLength="140" />
+          <Property Name="detalle_usuario_tipo_inmueble" Type="nvarchar" MaxLength="140" />
+          <Property Name="detalle_usuario_especialidad" Type="nvarchar" MaxLength="140" />
+          <Property Name="detalle_usuario_idioma" Type="nvarchar" MaxLength="140" />
+        </EntityType>
+        <EntityType Name="favorito">
+          <Key>
+            <PropertyRef Name="id_favorito" />
+          </Key>
+          <Property Name="id_favorito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_inmueble" Type="int" Nullable="false" />
+          <Property Name="favorito_fecha" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="foto">
+          <Key>
+            <PropertyRef Name="id_foto" />
+          </Key>
+          <Property Name="id_foto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_inmueble" Type="int" Nullable="false" />
+          <Property Name="id_tipo_foto" Type="int" Nullable="false" />
+          <Property Name="foto_url" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="idioma">
+          <Key>
+            <PropertyRef Name="id_idioma" />
+          </Key>
+          <Property Name="id_idioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idioma_nombre" Type="nvarchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inmueble">
+          <Key>
+            <PropertyRef Name="id_inmueble" />
+          </Key>
+          <Property Name="id_inmueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_operacion" Type="int" Nullable="false" />
+          <Property Name="id_tipo_inmueble" Type="int" Nullable="false" />
+          <Property Name="inmueble_titulo" Type="nvarchar" MaxLength="140" Nullable="false" />
+          <Property Name="inmueble_descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="inmueble_monto" Type="money" Nullable="false" />
+          <Property Name="inmueble_subasta" Type="money" />
+          <Property Name="inmueble_codigo" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="inmueble_terreno" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="inmueble_construido" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="inmueble_habitaciones" Type="int" Nullable="false" />
+          <Property Name="inmueble_baños" Type="decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="inmueble_cocina" Type="int" Nullable="false" />
+          <Property Name="inmueble_sala" Type="int" Nullable="false" />
+          <Property Name="inmueble_comedor" Type="int" Nullable="false" />
+          <Property Name="inmueble_jardin" Type="int" Nullable="false" />
+          <Property Name="inmueble_terraza" Type="int" Nullable="false" />
+          <Property Name="inmueble_alberca" Type="int" Nullable="false" />
+          <Property Name="inmueble_capacidad_autos" Type="int" Nullable="false" />
+          <Property Name="inmueble_calle" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="inmueble_numero_exterior" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="inmueble_numero_interior" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="inmueble_colonia" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="inmueble_codigo_postal" Type="int" Nullable="false" />
+          <Property Name="inmueble_localidad" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="inmueble_municipio" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="inmueble_estado" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="inmueble_pais" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="inmueble_latitud" Type="decimal" Precision="12" Scale="7" Nullable="false" />
+          <Property Name="inmueble_longitud" Type="decimal" Precision="12" Scale="7" Nullable="false" />
+          <Property Name="inmueble_fecha_registro" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="operacion">
+          <Key>
+            <PropertyRef Name="id_operacion" />
+          </Key>
+          <Property Name="id_operacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="operacion_nombre" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="opinion">
+          <Key>
+            <PropertyRef Name="id_opinion" />
+          </Key>
+          <Property Name="id_opinion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario_receptor" Type="int" Nullable="false" />
+          <Property Name="id_usuario_emisor" Type="int" Nullable="false" />
+          <Property Name="opinion_comentario" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="opinion_fecha" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="paquete">
+          <Key>
+            <PropertyRef Name="id_paquete" />
+          </Key>
+          <Property Name="id_paquete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+          <Property Name="paquete_nombre" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="paquete_precio" Type="money" Nullable="false" />
+          <Property Name="paquete_inmuebles_permitidos" Type="int" Nullable="false" />
+          <Property Name="paquete_fecha_vigencia" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ranking">
+          <Key>
+            <PropertyRef Name="id_ranking" />
+          </Key>
+          <Property Name="id_ranking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario_calificador" Type="int" Nullable="false" />
+          <Property Name="id_usuario_calificado" Type="int" Nullable="false" />
+          <Property Name="ranking_puntaje" Type="int" Nullable="false" />
+          <Property Name="ranking_fecha" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_roles_identity" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="rol_nombre" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="servicio">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servicio_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_foto">
+          <Key>
+            <PropertyRef Name="id_tipo_foto" />
+          </Key>
+          <Property Name="id_tipo_foto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_foto_nombre" Type="nvarchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_inmueble">
+          <Key>
+            <PropertyRef Name="id_tipo_inmueble" />
+          </Key>
+          <Property Name="id_tipo_inmueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_inmueble_nombre" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_usuario">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_usuario_nombre" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_account" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="id_tipo_usuario" Type="int" />
+          <Property Name="id_paquete" Type="int" />
+          <Property Name="id_clasificacion" Type="int" />
+          <Property Name="usuario_nombre" Type="nvarchar" MaxLength="20" />
+          <Property Name="usuario_apellido_paterno" Type="nvarchar" MaxLength="15" />
+          <Property Name="usuario_apellido_materno" Type="nvarchar" MaxLength="15" />
+          <Property Name="usuario_nombre_fiscal" Type="nvarchar" MaxLength="50" />
+          <Property Name="usuario_nombre_comercial" Type="nvarchar" MaxLength="50" />
+          <Property Name="usuario_nombre_responsable" Type="nvarchar" MaxLength="50" />
+          <Property Name="usuario_sexo" Type="nvarchar" MaxLength="9" />
+          <Property Name="usuario_correo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="usuario_calle" Type="nvarchar" MaxLength="25" />
+          <Property Name="usuario_numero_exterior" Type="nvarchar" MaxLength="7" />
+          <Property Name="usuario_numero_interior" Type="nvarchar" MaxLength="7" />
+          <Property Name="usuario_colonia" Type="nvarchar" MaxLength="25" />
+          <Property Name="usuario_codigo_postal" Type="int" />
+          <Property Name="usuario_localidad" Type="nvarchar" MaxLength="25" />
+          <Property Name="usuario_municipio" Type="nvarchar" MaxLength="25" />
+          <Property Name="usuario_estado" Type="nvarchar" MaxLength="20" />
+          <Property Name="usuario_pais" Type="nvarchar" MaxLength="15" />
+          <Property Name="usuario_telefono" Type="nvarchar" MaxLength="10" />
+          <Property Name="usuario_celular" Type="nvarchar" MaxLength="10" />
+          <Property Name="usuario_sitio_web" Type="nvarchar" MaxLength="140" />
+          <Property Name="usuario_fecha_registro" Type="date" Nullable="false" />
+          <Property Name="usuario_foto_url" Type="nvarchar" MaxLength="100" />
+          <Property Name="usuario_latitud" Type="decimal" Precision="12" Scale="7" />
+          <Property Name="usuario_longitud" Type="decimal" Precision="12" Scale="7" />
+        </EntityType>
+        <Association Name="FK_auxiliar_idioma_idioma">
+          <End Role="idioma" Type="Self.idioma" Multiplicity="1" />
+          <End Role="auxiliar_idioma" Type="Self.auxiliar_idioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idioma">
+              <PropertyRef Name="id_idioma" />
+            </Principal>
+            <Dependent Role="auxiliar_idioma">
+              <PropertyRef Name="id_idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_auxiliar_idioma_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="auxiliar_idioma" Type="Self.auxiliar_idioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="auxiliar_idioma">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_credito_inmueble">
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="1" />
+          <End Role="credito" Type="Self.credito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inmueble">
+              <PropertyRef Name="id_inmueble" />
+            </Principal>
+            <Dependent Role="credito">
+              <PropertyRef Name="id_inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_usuario_servicio">
+          <End Role="servicio" Type="Self.servicio" Multiplicity="0..1" />
+          <End Role="detalle_usuario" Type="Self.detalle_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="servicio">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="detalle_usuario">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_usuario_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="detalle_usuario" Type="Self.detalle_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="detalle_usuario">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_favorito_inmueble">
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="1" />
+          <End Role="favorito" Type="Self.favorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inmueble">
+              <PropertyRef Name="id_inmueble" />
+            </Principal>
+            <Dependent Role="favorito">
+              <PropertyRef Name="id_inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_favorito_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="favorito" Type="Self.favorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="favorito">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_foto_inmueble">
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="1" />
+          <End Role="foto" Type="Self.foto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inmueble">
+              <PropertyRef Name="id_inmueble" />
+            </Principal>
+            <Dependent Role="foto">
+              <PropertyRef Name="id_inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_foto_tipo_foto">
+          <End Role="tipo_foto" Type="Self.tipo_foto" Multiplicity="1" />
+          <End Role="foto" Type="Self.foto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_foto">
+              <PropertyRef Name="id_tipo_foto" />
+            </Principal>
+            <Dependent Role="foto">
+              <PropertyRef Name="id_tipo_foto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inmueble_operacion">
+          <End Role="operacion" Type="Self.operacion" Multiplicity="1" />
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="operacion">
+              <PropertyRef Name="id_operacion" />
+            </Principal>
+            <Dependent Role="inmueble">
+              <PropertyRef Name="id_operacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inmueble_tipo_inmueble">
+          <End Role="tipo_inmueble" Type="Self.tipo_inmueble" Multiplicity="1" />
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_inmueble">
+              <PropertyRef Name="id_tipo_inmueble" />
+            </Principal>
+            <Dependent Role="inmueble">
+              <PropertyRef Name="id_tipo_inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inmueble_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inmueble">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_opinion_usuario1">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="opinion" Type="Self.opinion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="opinion">
+              <PropertyRef Name="id_usuario_receptor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_opinion_usuario2">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="opinion" Type="Self.opinion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="opinion">
+              <PropertyRef Name="id_usuario_emisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paquete_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="paquete" Type="Self.paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="paquete">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ranking_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="ranking" Type="Self.ranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="ranking">
+              <PropertyRef Name="id_usuario_calificador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ranking_usuario1">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="ranking" Type="Self.ranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="ranking">
+              <PropertyRef Name="id_usuario_calificado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_clasificacion">
+          <End Role="clasificacion" Type="Self.clasificacion" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clasificacion">
+              <PropertyRef Name="id_clasificacion" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_clasificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_paquete">
+          <End Role="paquete" Type="Self.paquete" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paquete">
+              <PropertyRef Name="id_paquete" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_paquete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_tipo_usuario">
+          <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="allisonModelStoreContainer">
+          <EntitySet Name="auxiliar_idioma" EntityType="Self.auxiliar_idioma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clasificacion" EntityType="Self.clasificacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contacto" EntityType="Self.contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="credito" EntityType="Self.credito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle_usuario" EntityType="Self.detalle_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="favorito" EntityType="Self.favorito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="foto" EntityType="Self.foto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="idioma" EntityType="Self.idioma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inmueble" EntityType="Self.inmueble" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="operacion" EntityType="Self.operacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="opinion" EntityType="Self.opinion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paquete" EntityType="Self.paquete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ranking" EntityType="Self.ranking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="servicio" EntityType="Self.servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_foto" EntityType="Self.tipo_foto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_inmueble" EntityType="Self.tipo_inmueble" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_usuario" EntityType="Self.tipo_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_auxiliar_idioma_idioma" Association="Self.FK_auxiliar_idioma_idioma">
+            <End Role="idioma" EntitySet="idioma" />
+            <End Role="auxiliar_idioma" EntitySet="auxiliar_idioma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_auxiliar_idioma_usuario" Association="Self.FK_auxiliar_idioma_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="auxiliar_idioma" EntitySet="auxiliar_idioma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_credito_inmueble" Association="Self.FK_credito_inmueble">
+            <End Role="inmueble" EntitySet="inmueble" />
+            <End Role="credito" EntitySet="credito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_usuario_servicio" Association="Self.FK_detalle_usuario_servicio">
+            <End Role="servicio" EntitySet="servicio" />
+            <End Role="detalle_usuario" EntitySet="detalle_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_usuario_usuario" Association="Self.FK_detalle_usuario_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="detalle_usuario" EntitySet="detalle_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_favorito_inmueble" Association="Self.FK_favorito_inmueble">
+            <End Role="inmueble" EntitySet="inmueble" />
+            <End Role="favorito" EntitySet="favorito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_favorito_usuario" Association="Self.FK_favorito_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="favorito" EntitySet="favorito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_foto_inmueble" Association="Self.FK_foto_inmueble">
+            <End Role="inmueble" EntitySet="inmueble" />
+            <End Role="foto" EntitySet="foto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_foto_tipo_foto" Association="Self.FK_foto_tipo_foto">
+            <End Role="tipo_foto" EntitySet="tipo_foto" />
+            <End Role="foto" EntitySet="foto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inmueble_operacion" Association="Self.FK_inmueble_operacion">
+            <End Role="operacion" EntitySet="operacion" />
+            <End Role="inmueble" EntitySet="inmueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inmueble_tipo_inmueble" Association="Self.FK_inmueble_tipo_inmueble">
+            <End Role="tipo_inmueble" EntitySet="tipo_inmueble" />
+            <End Role="inmueble" EntitySet="inmueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inmueble_usuario" Association="Self.FK_inmueble_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="inmueble" EntitySet="inmueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK_opinion_usuario1" Association="Self.FK_opinion_usuario1">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="opinion" EntitySet="opinion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_opinion_usuario2" Association="Self.FK_opinion_usuario2">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="opinion" EntitySet="opinion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paquete_rol" Association="Self.FK_paquete_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="paquete" EntitySet="paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ranking_usuario" Association="Self.FK_ranking_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="ranking" EntitySet="ranking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ranking_usuario1" Association="Self.FK_ranking_usuario1">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="ranking" EntitySet="ranking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_clasificacion" Association="Self.FK_usuario_clasificacion">
+            <End Role="clasificacion" EntitySet="clasificacion" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_paquete" Association="Self.FK_usuario_paquete">
+            <End Role="paquete" EntitySet="paquete" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_tipo_usuario" Association="Self.FK_usuario_tipo_usuario">
+            <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="allisonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="auxiliar_idioma">
+          <Key>
+            <PropertyRef Name="id_auxiliar_idioma" />
+          </Key>
+          <Property Name="id_auxiliar_idioma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_idioma" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="idioma" Relationship="Self.FK_auxiliar_idioma_idioma" FromRole="auxiliar_idioma" ToRole="idioma" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_auxiliar_idioma_usuario" FromRole="auxiliar_idioma" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="clasificacion">
+          <Key>
+            <PropertyRef Name="id_clasificacion" />
+          </Key>
+          <Property Name="id_clasificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clasificacion_nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_usuario_clasificacion" FromRole="clasificacion" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="contacto">
+          <Key>
+            <PropertyRef Name="id_contacto" />
+          </Key>
+          <Property Name="id_contacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contacto_nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contacto_correo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contacto_mensaje" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contacto_fecha" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="credito">
+          <Key>
+            <PropertyRef Name="id_credito" />
+          </Key>
+          <Property Name="id_credito" Type="Int32" Nullable="false" />
+          <Property Name="id_inmueble" Type="Int32" Nullable="false" />
+          <Property Name="credito_nombre" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="inmueble" Relationship="Self.FK_credito_inmueble" FromRole="credito" ToRole="inmueble" />
+        </EntityType>
+        <EntityType Name="detalle_usuario">
+          <Key>
+            <PropertyRef Name="id_detalle_usuario" />
+          </Key>
+          <Property Name="id_detalle_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_servicio" Type="Int32" />
+          <Property Name="detalle_usuario_biografia" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="detalle_usuario_tipo_cliente" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+          <Property Name="detalle_usuario_tipo_inmueble" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+          <Property Name="detalle_usuario_especialidad" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+          <Property Name="detalle_usuario_idioma" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="servicio" Relationship="Self.FK_detalle_usuario_servicio" FromRole="detalle_usuario" ToRole="servicio" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_detalle_usuario_usuario" FromRole="detalle_usuario" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="favorito">
+          <Key>
+            <PropertyRef Name="id_favorito" />
+          </Key>
+          <Property Name="id_favorito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_inmueble" Type="Int32" Nullable="false" />
+          <Property Name="favorito_fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="inmueble" Relationship="Self.FK_favorito_inmueble" FromRole="favorito" ToRole="inmueble" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_favorito_usuario" FromRole="favorito" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="foto">
+          <Key>
+            <PropertyRef Name="id_foto" />
+          </Key>
+          <Property Name="id_foto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_inmueble" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_foto" Type="Int32" Nullable="false" />
+          <Property Name="foto_url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="inmueble" Relationship="Self.FK_foto_inmueble" FromRole="foto" ToRole="inmueble" />
+          <NavigationProperty Name="tipo_foto" Relationship="Self.FK_foto_tipo_foto" FromRole="foto" ToRole="tipo_foto" />
+        </EntityType>
+        <EntityType Name="idioma">
+          <Key>
+            <PropertyRef Name="id_idioma" />
+          </Key>
+          <Property Name="id_idioma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idioma_nombre" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="auxiliar_idioma" Relationship="Self.FK_auxiliar_idioma_idioma" FromRole="idioma" ToRole="auxiliar_idioma" />
+        </EntityType>
+        <EntityType Name="inmueble">
+          <Key>
+            <PropertyRef Name="id_inmueble" />
+          </Key>
+          <Property Name="id_inmueble" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_operacion" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_inmueble" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_titulo" Type="String" MaxLength="140" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="inmueble_subasta" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="inmueble_codigo" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_terreno" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_construido" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_habitaciones" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_baños" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="inmueble_cocina" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_sala" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_comedor" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_jardin" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_terraza" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_alberca" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_capacidad_autos" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_calle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_numero_exterior" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_numero_interior" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_colonia" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_codigo_postal" Type="Int32" Nullable="false" />
+          <Property Name="inmueble_localidad" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_municipio" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_pais" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inmueble_latitud" Type="Decimal" Precision="12" Scale="7" Nullable="false" />
+          <Property Name="inmueble_longitud" Type="Decimal" Precision="12" Scale="7" Nullable="false" />
+          <Property Name="inmueble_fecha_registro" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="creditoes" Relationship="Self.FK_credito_inmueble" FromRole="inmueble" ToRole="credito" />
+          <NavigationProperty Name="favoritoes" Relationship="Self.FK_favorito_inmueble" FromRole="inmueble" ToRole="favorito" />
+          <NavigationProperty Name="fotoes" Relationship="Self.FK_foto_inmueble" FromRole="inmueble" ToRole="foto" />
+          <NavigationProperty Name="operacion" Relationship="Self.FK_inmueble_operacion" FromRole="inmueble" ToRole="operacion" />
+          <NavigationProperty Name="tipo_inmueble" Relationship="Self.FK_inmueble_tipo_inmueble" FromRole="inmueble" ToRole="tipo_inmueble" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_inmueble_usuario" FromRole="inmueble" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="operacion">
+          <Key>
+            <PropertyRef Name="id_operacion" />
+          </Key>
+          <Property Name="id_operacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="operacion_nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="inmuebles" Relationship="Self.FK_inmueble_operacion" FromRole="operacion" ToRole="inmueble" />
+        </EntityType>
+        <EntityType Name="opinion">
+          <Key>
+            <PropertyRef Name="id_opinion" />
+          </Key>
+          <Property Name="id_opinion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario_receptor" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario_emisor" Type="Int32" Nullable="false" />
+          <Property Name="opinion_comentario" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opinion_fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_opinion_usuario1" FromRole="opinion" ToRole="usuario" />
+          <NavigationProperty Name="usuario1" Relationship="Self.FK_opinion_usuario2" FromRole="opinion" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="paquete">
+          <Key>
+            <PropertyRef Name="id_paquete" />
+          </Key>
+          <Property Name="id_paquete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <Property Name="paquete_nombre" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="paquete_precio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="paquete_inmuebles_permitidos" Type="Int32" Nullable="false" />
+          <Property Name="paquete_fecha_vigencia" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="rol" Relationship="Self.FK_paquete_rol" FromRole="paquete" ToRole="rol" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_usuario_paquete" FromRole="paquete" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="ranking">
+          <Key>
+            <PropertyRef Name="id_ranking" />
+          </Key>
+          <Property Name="id_ranking" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario_calificador" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario_calificado" Type="Int32" Nullable="false" />
+          <Property Name="ranking_puntaje" Type="Int32" Nullable="false" />
+          <Property Name="ranking_fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_ranking_usuario" FromRole="ranking" ToRole="usuario" />
+          <NavigationProperty Name="usuario1" Relationship="Self.FK_ranking_usuario1" FromRole="ranking" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_roles_identity" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rol_nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="paquetes" Relationship="Self.FK_paquete_rol" FromRole="rol" ToRole="paquete" />
+        </EntityType>
+        <EntityType Name="servicio">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servicio_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="detalle_usuario" Relationship="Self.FK_detalle_usuario_servicio" FromRole="servicio" ToRole="detalle_usuario" />
+        </EntityType>
+        <EntityType Name="tipo_foto">
+          <Key>
+            <PropertyRef Name="id_tipo_foto" />
+          </Key>
+          <Property Name="id_tipo_foto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_foto_nombre" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="fotoes" Relationship="Self.FK_foto_tipo_foto" FromRole="tipo_foto" ToRole="foto" />
+        </EntityType>
+        <EntityType Name="tipo_inmueble">
+          <Key>
+            <PropertyRef Name="id_tipo_inmueble" />
+          </Key>
+          <Property Name="id_tipo_inmueble" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_inmueble_nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="inmuebles" Relationship="Self.FK_inmueble_tipo_inmueble" FromRole="tipo_inmueble" ToRole="inmueble" />
+        </EntityType>
+        <EntityType Name="tipo_usuario">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_usuario_nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_usuario_tipo_usuario" FromRole="tipo_usuario" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_account" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_tipo_usuario" Type="Int32" />
+          <Property Name="id_paquete" Type="Int32" />
+          <Property Name="id_clasificacion" Type="Int32" />
+          <Property Name="usuario_nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_apellido_paterno" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_apellido_materno" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_nombre_fiscal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_nombre_comercial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_nombre_responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_sexo" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_correo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usuario_calle" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_numero_exterior" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_numero_interior" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_colonia" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_codigo_postal" Type="Int32" />
+          <Property Name="usuario_localidad" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_municipio" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_pais" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_celular" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_sitio_web" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_fecha_registro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="usuario_foto_url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="usuario_latitud" Type="Decimal" Precision="12" Scale="7" />
+          <Property Name="usuario_longitud" Type="Decimal" Precision="12" Scale="7" />
+          <NavigationProperty Name="auxiliar_idioma" Relationship="Self.FK_auxiliar_idioma_usuario" FromRole="usuario" ToRole="auxiliar_idioma" />
+          <NavigationProperty Name="clasificacion" Relationship="Self.FK_usuario_clasificacion" FromRole="usuario" ToRole="clasificacion" />
+          <NavigationProperty Name="detalle_usuario" Relationship="Self.FK_detalle_usuario_usuario" FromRole="usuario" ToRole="detalle_usuario" />
+          <NavigationProperty Name="favoritoes" Relationship="Self.FK_favorito_usuario" FromRole="usuario" ToRole="favorito" />
+          <NavigationProperty Name="inmuebles" Relationship="Self.FK_inmueble_usuario" FromRole="usuario" ToRole="inmueble" />
+          <NavigationProperty Name="opinions" Relationship="Self.FK_opinion_usuario1" FromRole="usuario" ToRole="opinion" />
+          <NavigationProperty Name="opinions1" Relationship="Self.FK_opinion_usuario2" FromRole="usuario" ToRole="opinion" />
+          <NavigationProperty Name="paquete" Relationship="Self.FK_usuario_paquete" FromRole="usuario" ToRole="paquete" />
+          <NavigationProperty Name="rankings" Relationship="Self.FK_ranking_usuario" FromRole="usuario" ToRole="ranking" />
+          <NavigationProperty Name="rankings1" Relationship="Self.FK_ranking_usuario1" FromRole="usuario" ToRole="ranking" />
+          <NavigationProperty Name="tipo_usuario" Relationship="Self.FK_usuario_tipo_usuario" FromRole="usuario" ToRole="tipo_usuario" />
+        </EntityType>
+        <Association Name="FK_auxiliar_idioma_idioma">
+          <End Role="idioma" Type="Self.idioma" Multiplicity="1" />
+          <End Role="auxiliar_idioma" Type="Self.auxiliar_idioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idioma">
+              <PropertyRef Name="id_idioma" />
+            </Principal>
+            <Dependent Role="auxiliar_idioma">
+              <PropertyRef Name="id_idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_auxiliar_idioma_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="auxiliar_idioma" Type="Self.auxiliar_idioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="auxiliar_idioma">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_clasificacion">
+          <End Role="clasificacion" Type="Self.clasificacion" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clasificacion">
+              <PropertyRef Name="id_clasificacion" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_clasificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_credito_inmueble">
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="1" />
+          <End Role="credito" Type="Self.credito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inmueble">
+              <PropertyRef Name="id_inmueble" />
+            </Principal>
+            <Dependent Role="credito">
+              <PropertyRef Name="id_inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_usuario_servicio">
+          <End Role="servicio" Type="Self.servicio" Multiplicity="0..1" />
+          <End Role="detalle_usuario" Type="Self.detalle_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="servicio">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="detalle_usuario">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_usuario_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="detalle_usuario" Type="Self.detalle_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="detalle_usuario">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_favorito_inmueble">
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="1" />
+          <End Role="favorito" Type="Self.favorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inmueble">
+              <PropertyRef Name="id_inmueble" />
+            </Principal>
+            <Dependent Role="favorito">
+              <PropertyRef Name="id_inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_favorito_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="favorito" Type="Self.favorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="favorito">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_foto_inmueble">
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="1" />
+          <End Role="foto" Type="Self.foto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inmueble">
+              <PropertyRef Name="id_inmueble" />
+            </Principal>
+            <Dependent Role="foto">
+              <PropertyRef Name="id_inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_foto_tipo_foto">
+          <End Role="tipo_foto" Type="Self.tipo_foto" Multiplicity="1" />
+          <End Role="foto" Type="Self.foto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_foto">
+              <PropertyRef Name="id_tipo_foto" />
+            </Principal>
+            <Dependent Role="foto">
+              <PropertyRef Name="id_tipo_foto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inmueble_operacion">
+          <End Role="operacion" Type="Self.operacion" Multiplicity="1" />
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="operacion">
+              <PropertyRef Name="id_operacion" />
+            </Principal>
+            <Dependent Role="inmueble">
+              <PropertyRef Name="id_operacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inmueble_tipo_inmueble">
+          <End Role="tipo_inmueble" Type="Self.tipo_inmueble" Multiplicity="1" />
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_inmueble">
+              <PropertyRef Name="id_tipo_inmueble" />
+            </Principal>
+            <Dependent Role="inmueble">
+              <PropertyRef Name="id_tipo_inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inmueble_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="inmueble" Type="Self.inmueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inmueble">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_opinion_usuario1">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="opinion" Type="Self.opinion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="opinion">
+              <PropertyRef Name="id_usuario_receptor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_opinion_usuario2">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="opinion" Type="Self.opinion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="opinion">
+              <PropertyRef Name="id_usuario_emisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paquete_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="paquete" Type="Self.paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="paquete">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_paquete">
+          <End Role="paquete" Type="Self.paquete" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paquete">
+              <PropertyRef Name="id_paquete" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_paquete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ranking_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="ranking" Type="Self.ranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="ranking">
+              <PropertyRef Name="id_usuario_calificador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ranking_usuario1">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="ranking" Type="Self.ranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="ranking">
+              <PropertyRef Name="id_usuario_calificado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_tipo_usuario">
+          <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="allisonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="auxiliar_idioma" EntityType="Self.auxiliar_idioma" />
+          <EntitySet Name="clasificacions" EntityType="Self.clasificacion" />
+          <EntitySet Name="contactoes" EntityType="Self.contacto" />
+          <EntitySet Name="creditoes" EntityType="Self.credito" />
+          <EntitySet Name="detalle_usuario" EntityType="Self.detalle_usuario" />
+          <EntitySet Name="favoritoes" EntityType="Self.favorito" />
+          <EntitySet Name="fotoes" EntityType="Self.foto" />
+          <EntitySet Name="idiomas" EntityType="Self.idioma" />
+          <EntitySet Name="inmuebles" EntityType="Self.inmueble" />
+          <EntitySet Name="operacions" EntityType="Self.operacion" />
+          <EntitySet Name="opinions" EntityType="Self.opinion" />
+          <EntitySet Name="paquetes" EntityType="Self.paquete" />
+          <EntitySet Name="rankings" EntityType="Self.ranking" />
+          <EntitySet Name="rols" EntityType="Self.rol" />
+          <EntitySet Name="servicios" EntityType="Self.servicio" />
+          <EntitySet Name="tipo_foto" EntityType="Self.tipo_foto" />
+          <EntitySet Name="tipo_inmueble" EntityType="Self.tipo_inmueble" />
+          <EntitySet Name="tipo_usuario" EntityType="Self.tipo_usuario" />
+          <EntitySet Name="usuarios" EntityType="Self.usuario" />
+          <AssociationSet Name="FK_auxiliar_idioma_idioma" Association="Self.FK_auxiliar_idioma_idioma">
+            <End Role="idioma" EntitySet="idiomas" />
+            <End Role="auxiliar_idioma" EntitySet="auxiliar_idioma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_auxiliar_idioma_usuario" Association="Self.FK_auxiliar_idioma_usuario">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="auxiliar_idioma" EntitySet="auxiliar_idioma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_clasificacion" Association="Self.FK_usuario_clasificacion">
+            <End Role="clasificacion" EntitySet="clasificacions" />
+            <End Role="usuario" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_credito_inmueble" Association="Self.FK_credito_inmueble">
+            <End Role="inmueble" EntitySet="inmuebles" />
+            <End Role="credito" EntitySet="creditoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_usuario_servicio" Association="Self.FK_detalle_usuario_servicio">
+            <End Role="servicio" EntitySet="servicios" />
+            <End Role="detalle_usuario" EntitySet="detalle_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_usuario_usuario" Association="Self.FK_detalle_usuario_usuario">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="detalle_usuario" EntitySet="detalle_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_favorito_inmueble" Association="Self.FK_favorito_inmueble">
+            <End Role="inmueble" EntitySet="inmuebles" />
+            <End Role="favorito" EntitySet="favoritoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_favorito_usuario" Association="Self.FK_favorito_usuario">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="favorito" EntitySet="favoritoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_foto_inmueble" Association="Self.FK_foto_inmueble">
+            <End Role="inmueble" EntitySet="inmuebles" />
+            <End Role="foto" EntitySet="fotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_foto_tipo_foto" Association="Self.FK_foto_tipo_foto">
+            <End Role="tipo_foto" EntitySet="tipo_foto" />
+            <End Role="foto" EntitySet="fotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inmueble_operacion" Association="Self.FK_inmueble_operacion">
+            <End Role="operacion" EntitySet="operacions" />
+            <End Role="inmueble" EntitySet="inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inmueble_tipo_inmueble" Association="Self.FK_inmueble_tipo_inmueble">
+            <End Role="tipo_inmueble" EntitySet="tipo_inmueble" />
+            <End Role="inmueble" EntitySet="inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inmueble_usuario" Association="Self.FK_inmueble_usuario">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="inmueble" EntitySet="inmuebles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_opinion_usuario1" Association="Self.FK_opinion_usuario1">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="opinion" EntitySet="opinions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_opinion_usuario2" Association="Self.FK_opinion_usuario2">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="opinion" EntitySet="opinions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paquete_rol" Association="Self.FK_paquete_rol">
+            <End Role="rol" EntitySet="rols" />
+            <End Role="paquete" EntitySet="paquetes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_paquete" Association="Self.FK_usuario_paquete">
+            <End Role="paquete" EntitySet="paquetes" />
+            <End Role="usuario" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ranking_usuario" Association="Self.FK_ranking_usuario">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="ranking" EntitySet="rankings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ranking_usuario1" Association="Self.FK_ranking_usuario1">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="ranking" EntitySet="rankings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_tipo_usuario" Association="Self.FK_usuario_tipo_usuario">
+            <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+            <End Role="usuario" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="allisonModelStoreContainer" CdmEntityContainer="allisonEntities">
+          <EntitySetMapping Name="auxiliar_idioma">
+            <EntityTypeMapping TypeName="allisonModel.auxiliar_idioma">
+              <MappingFragment StoreEntitySet="auxiliar_idioma">
+                <ScalarProperty Name="id_auxiliar_idioma" ColumnName="id_auxiliar_idioma" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clasificacions">
+            <EntityTypeMapping TypeName="allisonModel.clasificacion">
+              <MappingFragment StoreEntitySet="clasificacion">
+                <ScalarProperty Name="id_clasificacion" ColumnName="id_clasificacion" />
+                <ScalarProperty Name="clasificacion_nombre" ColumnName="clasificacion_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactoes">
+            <EntityTypeMapping TypeName="allisonModel.contacto">
+              <MappingFragment StoreEntitySet="contacto">
+                <ScalarProperty Name="id_contacto" ColumnName="id_contacto" />
+                <ScalarProperty Name="contacto_nombre" ColumnName="contacto_nombre" />
+                <ScalarProperty Name="contacto_correo" ColumnName="contacto_correo" />
+                <ScalarProperty Name="contacto_mensaje" ColumnName="contacto_mensaje" />
+                <ScalarProperty Name="contacto_fecha" ColumnName="contacto_fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creditoes">
+            <EntityTypeMapping TypeName="allisonModel.credito">
+              <MappingFragment StoreEntitySet="credito">
+                <ScalarProperty Name="id_credito" ColumnName="id_credito" />
+                <ScalarProperty Name="id_inmueble" ColumnName="id_inmueble" />
+                <ScalarProperty Name="credito_nombre" ColumnName="credito_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_usuario">
+            <EntityTypeMapping TypeName="allisonModel.detalle_usuario">
+              <MappingFragment StoreEntitySet="detalle_usuario">
+                <ScalarProperty Name="id_detalle_usuario" ColumnName="id_detalle_usuario" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="detalle_usuario_biografia" ColumnName="detalle_usuario_biografia" />
+                <ScalarProperty Name="detalle_usuario_tipo_cliente" ColumnName="detalle_usuario_tipo_cliente" />
+                <ScalarProperty Name="detalle_usuario_tipo_inmueble" ColumnName="detalle_usuario_tipo_inmueble" />
+                <ScalarProperty Name="detalle_usuario_especialidad" ColumnName="detalle_usuario_especialidad" />
+                <ScalarProperty Name="detalle_usuario_idioma" ColumnName="detalle_usuario_idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="favoritoes">
+            <EntityTypeMapping TypeName="allisonModel.favorito">
+              <MappingFragment StoreEntitySet="favorito">
+                <ScalarProperty Name="id_favorito" ColumnName="id_favorito" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_inmueble" ColumnName="id_inmueble" />
+                <ScalarProperty Name="favorito_fecha" ColumnName="favorito_fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fotoes">
+            <EntityTypeMapping TypeName="allisonModel.foto">
+              <MappingFragment StoreEntitySet="foto">
+                <ScalarProperty Name="id_foto" ColumnName="id_foto" />
+                <ScalarProperty Name="id_inmueble" ColumnName="id_inmueble" />
+                <ScalarProperty Name="id_tipo_foto" ColumnName="id_tipo_foto" />
+                <ScalarProperty Name="foto_url" ColumnName="foto_url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="idiomas">
+            <EntityTypeMapping TypeName="allisonModel.idioma">
+              <MappingFragment StoreEntitySet="idioma">
+                <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+                <ScalarProperty Name="idioma_nombre" ColumnName="idioma_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inmuebles">
+            <EntityTypeMapping TypeName="allisonModel.inmueble">
+              <MappingFragment StoreEntitySet="inmueble">
+                <ScalarProperty Name="id_inmueble" ColumnName="id_inmueble" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_operacion" ColumnName="id_operacion" />
+                <ScalarProperty Name="id_tipo_inmueble" ColumnName="id_tipo_inmueble" />
+                <ScalarProperty Name="inmueble_titulo" ColumnName="inmueble_titulo" />
+                <ScalarProperty Name="inmueble_descripcion" ColumnName="inmueble_descripcion" />
+                <ScalarProperty Name="inmueble_monto" ColumnName="inmueble_monto" />
+                <ScalarProperty Name="inmueble_subasta" ColumnName="inmueble_subasta" />
+                <ScalarProperty Name="inmueble_codigo" ColumnName="inmueble_codigo" />
+                <ScalarProperty Name="inmueble_terreno" ColumnName="inmueble_terreno" />
+                <ScalarProperty Name="inmueble_construido" ColumnName="inmueble_construido" />
+                <ScalarProperty Name="inmueble_habitaciones" ColumnName="inmueble_habitaciones" />
+                <ScalarProperty Name="inmueble_baños" ColumnName="inmueble_baños" />
+                <ScalarProperty Name="inmueble_cocina" ColumnName="inmueble_cocina" />
+                <ScalarProperty Name="inmueble_sala" ColumnName="inmueble_sala" />
+                <ScalarProperty Name="inmueble_comedor" ColumnName="inmueble_comedor" />
+                <ScalarProperty Name="inmueble_jardin" ColumnName="inmueble_jardin" />
+                <ScalarProperty Name="inmueble_terraza" ColumnName="inmueble_terraza" />
+                <ScalarProperty Name="inmueble_alberca" ColumnName="inmueble_alberca" />
+                <ScalarProperty Name="inmueble_capacidad_autos" ColumnName="inmueble_capacidad_autos" />
+                <ScalarProperty Name="inmueble_calle" ColumnName="inmueble_calle" />
+                <ScalarProperty Name="inmueble_numero_exterior" ColumnName="inmueble_numero_exterior" />
+                <ScalarProperty Name="inmueble_numero_interior" ColumnName="inmueble_numero_interior" />
+                <ScalarProperty Name="inmueble_colonia" ColumnName="inmueble_colonia" />
+                <ScalarProperty Name="inmueble_codigo_postal" ColumnName="inmueble_codigo_postal" />
+                <ScalarProperty Name="inmueble_localidad" ColumnName="inmueble_localidad" />
+                <ScalarProperty Name="inmueble_municipio" ColumnName="inmueble_municipio" />
+                <ScalarProperty Name="inmueble_estado" ColumnName="inmueble_estado" />
+                <ScalarProperty Name="inmueble_pais" ColumnName="inmueble_pais" />
+                <ScalarProperty Name="inmueble_latitud" ColumnName="inmueble_latitud" />
+                <ScalarProperty Name="inmueble_longitud" ColumnName="inmueble_longitud" />
+                <ScalarProperty Name="inmueble_fecha_registro" ColumnName="inmueble_fecha_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="operacions">
+            <EntityTypeMapping TypeName="allisonModel.operacion">
+              <MappingFragment StoreEntitySet="operacion">
+                <ScalarProperty Name="id_operacion" ColumnName="id_operacion" />
+                <ScalarProperty Name="operacion_nombre" ColumnName="operacion_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="opinions">
+            <EntityTypeMapping TypeName="allisonModel.opinion">
+              <MappingFragment StoreEntitySet="opinion">
+                <ScalarProperty Name="id_opinion" ColumnName="id_opinion" />
+                <ScalarProperty Name="id_usuario_receptor" ColumnName="id_usuario_receptor" />
+                <ScalarProperty Name="id_usuario_emisor" ColumnName="id_usuario_emisor" />
+                <ScalarProperty Name="opinion_comentario" ColumnName="opinion_comentario" />
+                <ScalarProperty Name="opinion_fecha" ColumnName="opinion_fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paquetes">
+            <EntityTypeMapping TypeName="allisonModel.paquete">
+              <MappingFragment StoreEntitySet="paquete">
+                <ScalarProperty Name="id_paquete" ColumnName="id_paquete" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="paquete_nombre" ColumnName="paquete_nombre" />
+                <ScalarProperty Name="paquete_precio" ColumnName="paquete_precio" />
+                <ScalarProperty Name="paquete_inmuebles_permitidos" ColumnName="paquete_inmuebles_permitidos" />
+                <ScalarProperty Name="paquete_fecha_vigencia" ColumnName="paquete_fecha_vigencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rankings">
+            <EntityTypeMapping TypeName="allisonModel.ranking">
+              <MappingFragment StoreEntitySet="ranking">
+                <ScalarProperty Name="id_ranking" ColumnName="id_ranking" />
+                <ScalarProperty Name="id_usuario_calificador" ColumnName="id_usuario_calificador" />
+                <ScalarProperty Name="id_usuario_calificado" ColumnName="id_usuario_calificado" />
+                <ScalarProperty Name="ranking_puntaje" ColumnName="ranking_puntaje" />
+                <ScalarProperty Name="ranking_fecha" ColumnName="ranking_fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rols">
+            <EntityTypeMapping TypeName="allisonModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="id_roles_identity" ColumnName="id_roles_identity" />
+                <ScalarProperty Name="rol_nombre" ColumnName="rol_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="servicios">
+            <EntityTypeMapping TypeName="allisonModel.servicio">
+              <MappingFragment StoreEntitySet="servicio">
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="servicio_nombre" ColumnName="servicio_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_foto">
+            <EntityTypeMapping TypeName="allisonModel.tipo_foto">
+              <MappingFragment StoreEntitySet="tipo_foto">
+                <ScalarProperty Name="id_tipo_foto" ColumnName="id_tipo_foto" />
+                <ScalarProperty Name="tipo_foto_nombre" ColumnName="tipo_foto_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_inmueble">
+            <EntityTypeMapping TypeName="allisonModel.tipo_inmueble">
+              <MappingFragment StoreEntitySet="tipo_inmueble">
+                <ScalarProperty Name="id_tipo_inmueble" ColumnName="id_tipo_inmueble" />
+                <ScalarProperty Name="tipo_inmueble_nombre" ColumnName="tipo_inmueble_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_usuario">
+            <EntityTypeMapping TypeName="allisonModel.tipo_usuario">
+              <MappingFragment StoreEntitySet="tipo_usuario">
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+                <ScalarProperty Name="tipo_usuario_nombre" ColumnName="tipo_usuario_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="allisonModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+                <ScalarProperty Name="id_paquete" ColumnName="id_paquete" />
+                <ScalarProperty Name="id_clasificacion" ColumnName="id_clasificacion" />
+                <ScalarProperty Name="usuario_nombre" ColumnName="usuario_nombre" />
+                <ScalarProperty Name="usuario_apellido_paterno" ColumnName="usuario_apellido_paterno" />
+                <ScalarProperty Name="usuario_apellido_materno" ColumnName="usuario_apellido_materno" />
+                <ScalarProperty Name="usuario_nombre_fiscal" ColumnName="usuario_nombre_fiscal" />
+                <ScalarProperty Name="usuario_nombre_comercial" ColumnName="usuario_nombre_comercial" />
+                <ScalarProperty Name="usuario_nombre_responsable" ColumnName="usuario_nombre_responsable" />
+                <ScalarProperty Name="usuario_sexo" ColumnName="usuario_sexo" />
+                <ScalarProperty Name="usuario_correo" ColumnName="usuario_correo" />
+                <ScalarProperty Name="usuario_calle" ColumnName="usuario_calle" />
+                <ScalarProperty Name="usuario_numero_exterior" ColumnName="usuario_numero_exterior" />
+                <ScalarProperty Name="usuario_numero_interior" ColumnName="usuario_numero_interior" />
+                <ScalarProperty Name="usuario_colonia" ColumnName="usuario_colonia" />
+                <ScalarProperty Name="usuario_codigo_postal" ColumnName="usuario_codigo_postal" />
+                <ScalarProperty Name="usuario_localidad" ColumnName="usuario_localidad" />
+                <ScalarProperty Name="usuario_municipio" ColumnName="usuario_municipio" />
+                <ScalarProperty Name="usuario_estado" ColumnName="usuario_estado" />
+                <ScalarProperty Name="usuario_pais" ColumnName="usuario_pais" />
+                <ScalarProperty Name="usuario_telefono" ColumnName="usuario_telefono" />
+                <ScalarProperty Name="usuario_celular" ColumnName="usuario_celular" />
+                <ScalarProperty Name="usuario_sitio_web" ColumnName="usuario_sitio_web" />
+                <ScalarProperty Name="usuario_fecha_registro" ColumnName="usuario_fecha_registro" />
+                <ScalarProperty Name="usuario_foto_url" ColumnName="usuario_foto_url" />
+                <ScalarProperty Name="usuario_latitud" ColumnName="usuario_latitud" />
+                <ScalarProperty Name="usuario_longitud" ColumnName="usuario_longitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
